@@ -1,0 +1,81 @@
+<!DOCTYPE html >
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset = "UTF-8" >
+<meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+<link rel = "stylesheet" href = "{{ url_for('static', filename='css/style.css') }}" >
+<link rel = "stylesheet" href =
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+integrity = "sha384-
+9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+crossorigin = "anonymous" >
+<title > Sentiment analysis </title >
+</head>
+<style>
+#banner
+{
+text-align:center;
+background-image:url(/static/home1.jpg);
+background-repeat:no-repeat;
+border-radius:5px;
+margin:90px auto auto;
+padding:80px 0;
+}
+body{
+background-image:url("/static/sentiment.jpg");
+background-attachment: fixed;
+}
+.flashes{
+background-color: lightblue;
+padding: 20px;
+width: 800px;
+text-align: left;
+margin-bottom: 20px;
+border-radius: 4px;
+}
+</style>
+<body >
+<div id="banner">
+<center>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="flashes">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class ="container" >
+<div class ="shadow-lg p-3 mb-5 bg-light rounded text-dark text-center" role="alert" >
+<p class ="align-middle" color=#ff0000> <h1 > Twitter Hashtag Sentimental Analysis</h1 > </p >
+</div >
+<h2> Enter A Any Twitter Hashtag </h2 >
+<form action = "/results" method = "post" >
+<div class ="row justify-content-md-center" >
+<div class ="col" >
+<input type = "text" class ="form-control" id="exampleInputEmail1" name='keyword' autocomplete
+= "off" ><button type = "submit" class ="btn btn-primary" > Submit </button ></div
+>
+</form>
+</div >
+</div >
+<br >
+<br>
+<div CLASS="bg-info text-white" >
+<div class ="col" >
+<div class ="border border-light shadow-lg p-3 mb-5 bg-muted rounded font-italic text-white textcenter" role="alert" >
+<p class ="align-middle " >
+<h3 > On Twitter, adding a “#” to the beginning of an unbroken word or phrase creates a
+hashtag.</h3>
+<h3> When use a hashtag in a Tweet, it becomes linked to all of the other Tweets that include it.</h3>
+<h3>Including a hashtag gives a Tweet context and can give a conversation longevity.</h3>
+<h3>Clicking or tapping on a hashtagged word in any message shows you other Tweets that include
+that hashtag.</h3>
+<h3>Cannot add spaces or punctuation in a hashtag, or it will not work properly.</h3 > </p >
+<p class ="align-middle " > <h3 > Have a good day ahead!!! </h3 > </p >
+</div>
+</div >
+</div>
+</center>
+</div >
+</body >
+</html >
