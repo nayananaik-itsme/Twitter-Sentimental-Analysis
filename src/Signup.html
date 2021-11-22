@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "UTF-8" >
+<meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+<link rel = "stylesheet" href = "{{ url_for('static', filename='css/style.css') }}" >
+<link rel = "stylesheet" href =
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+integrity = "sha384-
+9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+crossorigin = "anonymous" >
+<title>Signup</title>
+<style>
+.flashes{
+background-color: lightblue;
+padding: 10px;
+width: 400px;
+text-align: right;
+}
+div {
+background-color: lightblue;
+}
+</style>
+</head>
+<body>
+<div class="p-3 mb-2 bg-warning text-dark">
+{% if error %}
+<p><strong>Error</strong>: {{error}}</p>
+{% endif %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class='flashes'>
+{% for message in messages %}
+<li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% block content %}{% endblock %}
+<div class ="container" >
+<div class ="shadow-lg p-3 mb-5 bg-light rounded text-dark text-center" role="alert" >
+<p class ="align-middle" color=#ff0000><h1>SignUp Page</h1></p>
+</div>
+<form action="/signup" method="post">
+<h2>Username</h2>
+<input type="text" name = "username" id="username">
+<br>
+<h2>Password</h2>
+<br>
+<input type="password" name="password" id="password">
+<br>
+<input type="submit" name="signup" value="Sign Up">
+</div>
+</form>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
