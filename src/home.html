@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset = "UTF-8" >
+<meta name = "viewport" content = "width=device-width, initial-scale=1.0" >
+<link rel = "stylesheet" href = "{{ url_for('static', filename='css/style.css') }}" >
+<link rel = "stylesheet" href =
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+integrity = "sha384-
+9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+crossorigin = "anonymous" >
+<title>home</title>
+</head>
+<style>
+.flashes{
+background-color: lightblue;
+padding: 20px;
+width: 800px;
+text-align: left;
+margin-bottom: 20px;
+border-radius: 4px;
+}
+</style>
+<body>
+<div class="p-3 mb-2 bg-warning text-dark">
+<center>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="flashes">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="text-right mb-3"><button type="button" class="btn btn-secondary"
+onclick="window.location.href='{{ url_for( 'home' ) }}';" height="20px">Sign UP</button>
+<button type="button" class="btn btn-secondary" onclick="window.location.href='{{ url_for( 'login'
+) }}';" height="20px">Login</button></div>
+<img src="{{url_for('static', filename='sentiment.png')}}" align="middle" height="200px"
+width="600px"/> </center>
+<div class ="container" >
+<div class ="shadow-lg p-3 mb-5 bg-light rounded text-dark text-center" role="alert" >
+<center>
+<h1>Welcome To Sentimental Analysis Website</h1>
+</div>
+</center>
+</div>
+<center>
+<h5>Sentiment Analysis is the process of ‘computationally’ determining whether a piece of writing
+is positive, negative or neutral.</h5>
+<h5>Sentiment analysis, also referred to as opinion mining or emotion extraction is the classification
+of emotions within a textual data.</h5>
+<h5>Opinion mining technique has been widely used in order to determine the sentiments, emotions
+within a particular textual data.</h5>
+<h5>Twitter is a social media platform that has been mostly used by people to express emotions for
+particular events.</h5>
+<h5>This Website collected tweets for a number of events from searched hashtag, analyzed them
+using a Machine Learning algorithms Naïve Bayes and finally generate graph for that sentimental
+analysis of searched hashtag tweets.
+</h5>
+<div class="p-3 mb-2 bg-light text-dark" >
+<div class ="col" >
+<div class="text-muted" role="alert" >
+<p class ="align-middle " > <h3 > Have a good day ahead!!! </h3 > </p >
+</div>
+</div>
+</center>
+</div>
+</body>
+</html>
